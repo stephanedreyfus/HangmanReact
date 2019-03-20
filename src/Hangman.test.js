@@ -15,6 +15,7 @@ it("matches snapshot", function() {
 
 it("changes images when an incorrect guess is made", function() {
   let wrapper = shallow(<Hangman />);
+  console.log(wrapper.find("img").props())
   wrapper.find("button[value='b']").simulate("click", { target: { value: "b" } });
   let imgSrc = wrapper.find('img').first().html()
   expect(imgSrc).not.toContain('0.jpg');
@@ -29,8 +30,8 @@ it("does not change image when a correct guess is made", function() {
 });
 
 it("Shows a letter on correct guess.", function() {
-    let wrapper = shallow(<Hangman />);
-    wrapper.find("button[value='a']").simulate("click", { target: { value: "a" } });
-    let hangWord = wrapper.find('p').first().html();
-    expect(hangWord).toContain('a____');
+  let wrapper = shallow(<Hangman />);
+  wrapper.find("button[value='a']").simulate("click", { target: { value: "a" } });
+  let hangWord = wrapper.find('p').first().html();
+  expect(hangWord).toContain('a____');
 });

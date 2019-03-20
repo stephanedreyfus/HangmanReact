@@ -8,6 +8,10 @@ exports[`matches snapshot 1`] = `
     alt="gallows"
     src="0.jpg"
   />
+  <p>
+    Number of Wrong Guesses: 
+    0
+  </p>
   <p
     className="Hangman-word"
   >
