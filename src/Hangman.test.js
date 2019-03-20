@@ -1,9 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from "enzyme";
+import toJson from "enzyme-to-json";
 import Hangman from './Hangman';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('renders without crashing', function() {
+    shallow(<Hangman />);
+});
+
+it("matches snapshot", function() {
+    let wrapper = shallow(<Hangman />);
+    let serialized = toJson(wrapper);
+    expect(serialized).toMatchSnapshot();
 });
